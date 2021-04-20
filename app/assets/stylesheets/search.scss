@@ -1,0 +1,60 @@
+/* bike Layout */
+
+.bikes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-card {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2%;
+  flex: 1 16%;
+
+  background-color: #FFF;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.25);
+  margin: 10px;
+  text-decoration: none;
+}
+
+.search-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.bike-image img {
+  width: 100%;
+}
+
+.bike-image-image {
+  height: 0;
+  width: 100%;
+  padding-bottom: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bike-info {
+  padding-top: 20px;
+  text-align: center;
+}
+
+@media ( max-width: 920px ) {
+  .search-card {
+    flex: 1 21%;
+  }
+
+  .bikes .search-card:first-child,
+  .bikes .search-card:nth-child(2) {
+    flex: 2 46%;
+  }
+}
+
+@media ( max-width: 600px ) {
+  .search-card {
+    flex: 1 46%;
+  }
+}
+
+
