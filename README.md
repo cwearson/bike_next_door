@@ -1,24 +1,64 @@
-# README
+# Truck Next Door
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Truck Next Door is a peer-to-peer marketplace for trucks.
 
-Things you may want to cover:
+It allows members to book a nearby truck, saving them the expense of owning and maintaining their own truck and also allows truck-owners to earn money by sharing their trucks.
 
-* Ruby version
+## Dependencies
+```
+  Ruby
+  PostgreSQL
+  Bundler
+  Node.js
+  Yarn
+```
 
-* System dependencies
+## Install dependencies
 
-* Configuration
+Install the dependencies using [Homebrew](https://brew.sh/).
 
-* Database creation
+Mac: You can install homebrew by using the install script at: https://brew.sh/
 
-* Database initialization
+Linux: You can install homebrew by using the install script at: http://linuxbrew.sh/
 
-* How to run the test suite
+**PostgreSQL**
 
-* Services (job queues, cache servers, search engines, etc.)
+`$ brew install postgresql`
 
-* Deployment instructions
+**Bundler**
 
-* ...
+`$ gem install bundler`
+
+**Node.JS**
+
+`$ brew install node`
+
+(As an alternative you can use Node Version Manager `nvm` to easily switch between node versions if needed)
+
+**Yarn**
+
+`$ brew install yarn`
+
+## App Setup
+
+**Install required gems**
+
+`$ bundle install`
+
+**Install Node packages**
+
+`$ yarn install` or simply `yarn`
+
+**Create the database**
+
+`bundle exec rake db:setup`
+
+**Start up the web server**
+
+`$ bin/rails server`
+
+## Testing
+
+Run the test suite:
+
+`$ bundle exec rspec`
