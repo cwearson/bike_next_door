@@ -1,8 +1,8 @@
-# Truck Next Door
+# Bike Next Door
 
-Truck Next Door is a peer-to-peer marketplace for trucks.
+Bike Next Door is a peer-to-peer marketplace for bicycles.
 
-It allows members to book a nearby truck, saving them the expense of owning and maintaining their own truck and also allows truck-owners to earn money by sharing their trucks.
+It allows users to book a nearby bike, saving them the expense of owning and maintaining their own and also allows bike-owners to earn money by sharing their bikes.
 
 ## Dependencies
 ```
