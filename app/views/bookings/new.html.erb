@@ -1,0 +1,25 @@
+<div class="bike-container">
+  <div class="bike-card">
+    <div class="bike-image-image" style='background-image: url("<%= asset_url(@bike.image_name) %>")'>
+    </div>
+    <div class="bike-info">
+      <h4><%= @bike.name.capitalize %></h4>
+      <h6><%= @bike.description&.capitalize %></h6>
+      <h6><%= number_to_currency(@bike.price_per_day) %> per day</h6>
+    </div>
+    <%= form_with url: bookings_path, class: "booking-form" do |form| %>
+        <%= form.hidden_field :bike_id, value: @bike.id %>
+      <div>
+        <%= form.label :user_full_name, "Enter your name" %>
+        <%= form.text_field :user_full_name %>
+      </div>
+      <div>
+        <%= form.label :date, "Pick a date" %>
+        <%= form.date_field :date, min: Date.today %>
+      </div>
+      <div>
+        <%= form.submit "Book", class: "book-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
