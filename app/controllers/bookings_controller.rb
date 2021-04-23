@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
   def show
     respond_to do |format|
       format.js
-      format.json { render json: @booking, status: :created, location: @booking }
+      format.json { render json: @booking }
     end
   end
 

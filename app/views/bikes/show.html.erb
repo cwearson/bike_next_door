@@ -2,7 +2,7 @@
   <div class="bike-card">
     <%= render partial: "common/bike", locals: { bike: @bike } %>
     <div class="booking-form">
-      <%= link_to("Book", new_booking_path(bike_id: @bike.id), class: "book-button") %>
+      <%= button_to("Book", new_booking_path(bike_id: @bike.id), class: "booking-button") %>
     </div>
   </div>
 </div>
