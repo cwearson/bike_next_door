@@ -5,13 +5,21 @@ class BookingsController < ApplicationController
 
   def create
     # TODO: move to a service, check whether conflicting bookings
-    Booking.create(
+    @booking = Booking.create(
       bike_id: booking_params[:bike_id],
       date: booking_params[:date],
       user_full_name: booking_params[:user_full_name],
     )
 
-    # TODO: redirect somewhere
+    render :show
+    # TODO: Handle failed booking
+  end
+
+  def show
+    respond_to do |format|
+      format.js
+      format.json { render json: @booking, status: :created, location: @booking }
+    end
   end
 
   private

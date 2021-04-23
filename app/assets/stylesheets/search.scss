@@ -1,6 +1,4 @@
-/* bike Layout */
-
-.bikes {
+.search-bikes {
   display: flex;
   flex-wrap: wrap;
 }
@@ -22,24 +20,6 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.bike-image img {
-  width: 100%;
-}
-
-.bike-image-image {
-  height: 0;
-  width: 100%;
-  padding-bottom: 100%;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.bike-info {
-  padding-top: 20px;
-  text-align: center;
-}
-
 @media ( max-width: 920px ) {
   .search-card {
     flex: 1 21%;
@@ -56,5 +36,3 @@
     flex: 1 46%;
   }
 }
-
-

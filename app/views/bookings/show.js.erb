@@ -1,0 +1,6 @@
+var form = document.querySelector(".booking-form");
+form.remove();
+
+var bookingConfirmation = document.querySelector(".booking-confirmation");
+var confirmationNote = "<%= escape_javascript render(partial: 'confirmation_note', locals: { booking: @booking }) %>";
+bookingConfirmation.innerHTML = confirmationNote;
