@@ -2,7 +2,7 @@
   <div class="bike-card">
     <%= render partial: "common/bike", locals: { bike: @bike } %>
     <div class="booking-form">
-      <%= button_to("Book", new_booking_path(bike_id: @bike.id), class: "booking-button") %>
+      <%= button_to("Book", new_bike_booking_path(@bike.id), class: "booking-button", method: :get) %>
     </div>
   </div>
 </div>
