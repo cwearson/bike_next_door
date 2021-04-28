@@ -1,21 +1,20 @@
-<div class="bike-container">
-  <div class="bike-card">
+<div class="wrapper--small">
+  <div class="card">
     <%= render partial: "common/bike", locals: { bike: @bike } %>
-    <%= form_with url: bike_booking_path, local: false, class: "booking-form" do |form| %>
-        <%= form.hidden_field :bike_id, value: @bike.id %>
-      <div>
-        <%= form.label :user_full_name, "Enter your name" %>
+    <%= form_with url: bike_booking_path, local: false, class: "pt-6", data: "booking-form" do |form| %>
+      <%= form.hidden_field :bike_id, value: @bike.id %>
+      <div class="mb-4">
+        <%= form.label :user_full_name, "Name" %>
         <%= form.text_field :user_full_name %>
       </div>
-      <div>
-        <%= form.label :date, "Pick a date" %>
+      <div class="mb-5">
+        <%= form.label :date, "Date" %>
         <%= form.date_field :date, min: Date.today, value: Date.today %>
       </div>
       <div>
-        <%= form.submit "Book", class: "booking-button" %>
+        <%= form.submit "Book", class: "button" %>
       </div>
     <% end %>
-    <div class="booking-confirmation">
-    </div>
+    <div class="alert hidden mt-5" data-booking-alert></div>
   </div>
 </div>

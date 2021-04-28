@@ -1,8 +1,8 @@
-<div class="bike-container">
-  <div class="bike-card">
+<div class="wrapper--small">
+  <div class="card">
     <%= render partial: "common/bike", locals: { bike: @bike } %>
-    <div class="booking-form">
-      <%= button_to("Book", new_bike_booking_path(@bike.id), class: "booking-button", method: :get) %>
+    <div class="pt-6" [data-booking-form]>
+      <%= button_to("Book", new_bike_booking_path(@bike.id), class: "button", method: :get) %>
     </div>
   </div>
 </div>
