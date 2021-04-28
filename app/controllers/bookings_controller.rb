@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # TODO: Check whether conflicting bookings
     @booking = CreateBooking.run(
       bike_id: booking_params[:bike_id],
       date: booking_params[:date],
