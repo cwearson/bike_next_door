@@ -1,18 +1,24 @@
 class BookingsController < ApplicationController
   def new
-    @bike = Bike.find(booking_params[:bike_id])
+    @booking ||= Booking.new(bike_id: booking_params[:bike_id])
   end
 
   def create
-    # TODO: move to a service, check whether conflicting bookings
-    @booking = Booking.create(
+    # TODO: Check whether conflicting bookings
+    @booking = CreateBooking.run(
       bike_id: booking_params[:bike_id],
       date: booking_params[:date],
       user_full_name: booking_params[:user_full_name],
     )
 
-    render :show
-    # TODO: Handle failed booking
+    if @booking.persisted?
+      render :show
+    else
+      @errors = @booking.errors.full_messages
+      respond_to do |format|
+        format.js { render :create_error }
+      end
+    end
   end
 
   def show
