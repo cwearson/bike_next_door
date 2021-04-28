@@ -12,19 +12,14 @@ class BookingsController < ApplicationController
     )
 
     if @booking.persisted?
-      render :show
+      respond_to do |format|
+        format.js { render :show, status: :created }
+      end
     else
       @errors = @booking.errors.full_messages
       respond_to do |format|
-        format.js { render :create_error }
+        format.js { render :create_error, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def show
-    respond_to do |format|
-      format.js
-      format.json { render json: @booking }
     end
   end
 
