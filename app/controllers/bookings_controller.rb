@@ -11,13 +11,14 @@ class BookingsController < ApplicationController
     )
 
     if @booking.persisted?
+      message = "Thanks for your booking #{@booking.user_full_name.capitalize}. See you on #{@booking.date.strftime('%A, %e %b')}!"
       respond_to do |format|
-        format.js { render :show, status: :created }
+        format.json { render json: { success_message: message }, status: :created }
       end
     else
-      @errors = @booking.errors.full_messages
+      errors = @booking.errors.full_messages
       respond_to do |format|
-        format.js { render :create_error, status: :unprocessable_entity }
+        format.json { render json: { error_messages: errors }, status: :unprocessable_entity }
       end
     end
   end

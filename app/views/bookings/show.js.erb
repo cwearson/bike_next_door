@@ -1,8 +1,0 @@
-var form = document.querySelector("[data-booking-form]");
-form.remove();
-
-var bookingConfirmation = document.querySelector("[data-booking-alert]");
-var confirmationNote = "<%= escape_javascript render(partial: 'confirmation_note', locals: { booking: @booking }) %>";
-bookingConfirmation.innerHTML = confirmationNote;
-bookingConfirmation.classList.add("alert--success");
-bookingConfirmation.classList.remove("hidden");

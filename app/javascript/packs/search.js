@@ -39,7 +39,7 @@ const getBikes = (el, orderBy) => {
     .catch((error) => console.log(error));
 };
 
-window.onload = () => {
+const onloadSearch = () => {
   const searchBikesEl = document.querySelector('[data-search-bikes]');
   if (!!searchBikesEl) {
     getBikes(searchBikesEl, ORDER_BY.DEFAULT);
@@ -48,3 +48,12 @@ window.onload = () => {
     // TODO Re-render search results if orderBy changes
   }
 };
+
+// Prevent overwriting on window.onload function by appending to the load event
+if (window.attachEvent) { // IE
+  window.attachEvent('onload', onloadSearch);
+} else if (window.addEventListener) {
+  window.addEventListener('load', onloadSearch, false);
+} else {
+  document.addEventListener('load', onloadSearch, false);
+}

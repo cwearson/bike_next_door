@@ -1,8 +1,0 @@
-var errorContainer = document.querySelector('.booking-errors');
-errorContainer.innerHTML = '';
-var errors = <%= raw @booking.errors.full_messages %>;
-errors.forEach(function(error) {
-  var errorMessage = document.createElement("p")
-  errorMessage.appendChild(document.createTextNode(error));
-  errorContainer.appendChild(errorMessage);
-});
