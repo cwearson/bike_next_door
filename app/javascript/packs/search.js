@@ -7,7 +7,7 @@ const axiosConfig = {
   data: {},
 };
 
-const ORDER_BY = {
+export const ORDER_BY = {
   DEFAULT: 'Default',
   NAME: 'Name',
   PRICE: 'Price',
@@ -25,27 +25,32 @@ const getSearchBikeHtml = (bike) => (`
   </a>
 `);
 
-const getBikes = (el, orderBy) => {
-  axios
+// TODO Implement orderBy functionality, support default, name & price
+export const generateSearchBikesHtml = (bikes, orderBy) => {
+  let searchBikesHtml = '';
+  bikes.forEach((bike) => {
+    searchBikesHtml = searchBikesHtml.concat(getSearchBikeHtml(bike));
+  });
+  return searchBikesHtml;
+};
+
+export const getBikes = () => {
+  return axios
     .get('/search', axiosConfig)
-    .then(({ data: bikes }) => {
-      let searchBikesHtml = '';
-      // TODO Implement orderBy functionality, support default, name & price
-      bikes.forEach((bike) => {
-        searchBikesHtml = searchBikesHtml.concat(getSearchBikeHtml(bike));
-      });
-      el.innerHTML = searchBikesHtml;
-    })
+    .then(({ data: bikes }) => bikes)
     .catch((error) => console.log(error));
 };
 
 const onloadSearch = () => {
   const searchBikesEl = document.querySelector('[data-search-bikes]');
   if (!!searchBikesEl) {
-    getBikes(searchBikesEl, ORDER_BY.DEFAULT);
+    getBikes(searchBikesEl)
+      .then((bikes) => {
+        el.innerHTML = generateSearchBikesHtml(bikes, ORDER_BY.DEFAULT);
+      });
 
     const searchOrderByEl = document.querySelector('[data-search-order-by]');
-    // TODO Re-render search results if orderBy changes
+    // TODO Re-render search results if orderBy changes without an API request
   }
 };
 

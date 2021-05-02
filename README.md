@@ -59,6 +59,10 @@ Linux: You can install homebrew by using the install script at: http://linuxbrew
 
 ## Testing
 
-Run the test suite:
+Run the ruby test suite:
 
 `$ bundle exec rspec`
+
+Run the javascript test suite:
+
+`$ yarn test`
