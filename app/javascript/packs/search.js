@@ -46,7 +46,7 @@ const onloadSearch = () => {
   if (!!searchBikesEl) {
     getBikes(searchBikesEl)
       .then((bikes) => {
-        el.innerHTML = generateSearchBikesHtml(bikes, ORDER_BY.DEFAULT);
+        searchBikesEl.innerHTML = generateSearchBikesHtml(bikes, ORDER_BY.DEFAULT);
       });
 
     const searchOrderByEl = document.querySelector('[data-search-order-by]');
